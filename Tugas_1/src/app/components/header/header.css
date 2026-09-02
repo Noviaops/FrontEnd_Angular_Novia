@@ -1,0 +1,20 @@
+.site-header {
+  background: #2b2b2b; /* charcoal */
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e6f2ff;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.header-inner .title {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #d9f0ff;
+}
+
+@media (max-width: 480px) {
+  .site-header { height: 64px; }
+  .header-inner .title { font-size: 1.15rem; }
+}

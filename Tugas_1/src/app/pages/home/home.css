@@ -1,0 +1,26 @@
+.home-page .grid {
+  display: flex;
+  gap: 1.5rem;
+  width: 95%;
+  margin: 1.5rem auto;
+  align-items: flex-start;
+}
+.home-page .card {
+  flex: 1 1 45%;
+  border: 1px solid #e6e9ec;
+  padding: 1.25rem;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.01) inset;
+}
+.home-page h2 { color: #133b6b; margin-top: 0; }
+.home-page p { text-align: justify; color: #333; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .home-page .grid { width: 98%; }
+}
+
+@media (max-width: 680px) {
+  .home-page .grid { flex-direction: column; }
+  .home-page .card { width: 100%; }
+}

@@ -1,0 +1,26 @@
+.site-nav {
+  background: #f5f7fa;
+  border-bottom: 1px solid #e0e6ea;
+}
+.site-nav .nav-inner {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+}
+.site-nav a {
+  text-decoration: none;
+  color: #1f4f8b; /* formal blue */
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+.site-nav a.active,
+.site-nav a:hover {
+  background: rgba(31,79,139,0.08);
+}
+
+@media (max-width: 600px) {
+  .site-nav .nav-inner { gap: 1rem; }
+}

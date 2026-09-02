@@ -1,0 +1,7 @@
+.contact-section { margin: 1.5rem auto; width: 95%; }
+.contact-section h3 { color: var(--formal-blue, #133b6b); margin-bottom: 0.5rem; }
+.map-wrap { border: 1px solid #e6e9ec; border-radius: 6px; overflow: hidden; }
+
+@media (max-width: 680px) {
+  .contact-section { width: 98%; }
+}

@@ -1,0 +1,21 @@
+<section class="members-section" id="members">
+
+  <div class="section-title">
+    <span>MEET THE MEMBERS</span>
+    <h2>NCT DREAM Members</h2>
+    <p>
+      Get to know the members of NCT DREAM.
+    </p>
+  </div>
+
+  <div class="members-grid">
+
+    @for (member of members; track member.name) {
+      <app-member-card
+        [member]="member">
+      </app-member-card>
+    }
+
+  </div>
+
+</section>

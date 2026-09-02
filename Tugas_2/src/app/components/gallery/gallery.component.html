@@ -1,0 +1,12 @@
+<section id="gallery" class="gallery">
+  <div class="frame">
+    <button class="prev" (click)="previousSlide()">◀</button>
+    <img [src]="images[currentSlide]" alt="slide image" />
+    <button class="next" (click)="nextSlide()">▶</button>
+  </div>
+  <div class="indicators">
+    @for (image of images; track image) {
+      <button class="indicator" type="button" [class.active]="currentSlide === images.indexOf(image)" (click)="goToSlide(images.indexOf(image))" [attr.aria-label]="'Go to slide ' + (images.indexOf(image) + 1)"></button>
+    }
+  </div>
+</section>

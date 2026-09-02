@@ -1,0 +1,50 @@
+:root {
+	--teal: #00b3a6;
+	--muted: #f7fbfb;
+	--card-bg: #ffffff;
+	--text: #222;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #f7fbfb;
+	color: #222;
+}
+
+.main-container {
+	max-width: 1200px;
+	margin: auto;
+	padding: 0 30px;
+
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	gap: 40px;
+}
+
+.content {
+	min-width: 0;
+}
+
+app-about {
+	display: block;
+	padding-top: 70px;
+}
+
+@media (max-width: 900px) {
+	.main-container {
+		grid-template-columns: 1fr;
+	}
+
+	app-about {
+		padding-top: 0;
+		padding-bottom: 50px;
+	}
+}
+
+@media (max-width: 600px) {
+	.main-container {
+		padding: 0 15px;
+	}
+}
+

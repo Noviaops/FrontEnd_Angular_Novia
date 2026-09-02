@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <h1>NCT DREAM</h1>
+      <span>Profile</span>
+    </div>
+
+    <nav class="navigation">
+      <a href="#members">Members</a>
+      <a href="#gallery">Gallery</a>
+
+      <button class="info-button" (click)="toggleInfo()">
+        Show Info <span>{{ showInfo ? '▲' : '▼' }}</span>
+      </button>
+    </nav>
+  </div>
+
+  @if (showInfo) {
+    <div class="info-dropdown">
+      <div class="info-content">
+        <h3>About This Website</h3>
+        <p>
+          This website contains information about the members
+          of NCT DREAM and a collection of their photos.
+        </p>
+      </div>
+    </div>
+  }
+
+</header>

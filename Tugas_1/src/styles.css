@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+	--charcoal: #2b2b2b;
+	--formal-blue: #133b6b;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+	background: #fff;
+	color: #222;
+}
+
+.container { max-width: 1100px; margin: 0 auto; }
+.page-main { padding: 1rem 0 3rem 0; }

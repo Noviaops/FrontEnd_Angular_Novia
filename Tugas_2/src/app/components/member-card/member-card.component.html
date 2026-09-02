@@ -1,0 +1,23 @@
+<article class="member-card">
+
+  <div class="image-wrapper">
+    <img
+      [src]="member.image"
+      [alt]="member.name"
+    />
+  </div>
+
+  <div class="member-info">
+    <h3>{{ member.name }}</h3>
+
+    <p class="role">
+      {{ member.role }}
+    </p>
+
+    <p class="birth">
+      <strong>Birth:</strong>
+      {{ member.birth }}
+    </p>
+  </div>
+
+</article>

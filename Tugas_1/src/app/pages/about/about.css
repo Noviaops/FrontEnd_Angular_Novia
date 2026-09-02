@@ -1,0 +1,7 @@
+.about-page h2 { color: #133b6b; margin-top: 0; }
+.about-page h3 { color: #1f4f8b; margin-bottom: 0.25rem; }
+.about-page p { color: #333; line-height: 1.6; text-align: justify; }
+
+@media (max-width: 680px) {
+  .about-page .content { width: 97%; }
+}

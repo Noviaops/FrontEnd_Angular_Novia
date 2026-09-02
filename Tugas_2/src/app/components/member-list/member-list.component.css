@@ -1,0 +1,44 @@
+.members-section {
+	padding: 70px 0;
+}
+
+.section-title {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.section-title span {
+	color: #159a9c;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 3px;
+}
+
+.section-title h2 {
+	margin: 10px 0;
+	font-size: 34px;
+	color: #222;
+}
+
+.section-title p {
+	margin: 0;
+	color: #777;
+}
+
+.members-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 25px;
+}
+
+@media (max-width: 950px) {
+	.members-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.members-grid {
+		grid-template-columns: 1fr;
+	}
+}
