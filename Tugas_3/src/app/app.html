@@ -1,0 +1,48 @@
+<main class="page-shell">
+  <header class="hero">
+    <div class="eyebrow">Praktikum Angular 21</div>
+    <h1>Angular 21 — Directive &amp; Pipe</h1>
+    <p>Ruang eksperimen interaktif untuk memahami binding, directive, dan pipe standalone.</p>
+  </header>
+
+  <section class="demo-grid" aria-label="Demo directive dan pipe">
+    <article class="demo-card">
+      <div class="card-heading"><span class="step">01</span><div><h2>Percobaan NgClass</h2><p>Ubah beberapa class berdasarkan state component.</p></div></div>
+      <div class="class-preview" [ngClass]="classCard()"><strong>{{ isActive() ? 'ACTIVE' : 'INACTIVE' }}</strong><span>{{ isHighlighted() ? 'Highlight menyala' : 'Mode normal' }}</span></div>
+      <div class="result-row"><span>Status saat ini</span><b>{{ isActive() ? 'Aktif' : 'Tidak aktif' }}</b></div>
+      <div class="actions"><button type="button" (click)="toggleClassState()">Ubah status</button><button type="button" class="secondary" (click)="toggleHighlight()">{{ isHighlighted() ? 'Matikan' : 'Tambahkan' }} highlight</button></div>
+    </article>
+
+    <article class="demo-card">
+      <div class="card-heading"><span class="step">02</span><div><h2>Percobaan NgStyle</h2><p>Atur warna, ukuran font, dan background secara langsung.</p></div></div>
+      <div class="style-preview" [ngStyle]="{ color: styleColor, 'font-size.rem': styleFontSize, 'background-color': styleBackground }"><strong>Style ini berasal dari component</strong><span>{{ styleFontSize | number:'1.1-1' }}rem · {{ styleColor }}</span></div>
+      <div class="actions"><button type="button" (click)="decreaseFont()">A−</button><button type="button" (click)="increaseFont()">A+</button><button type="button" class="secondary" (click)="cycleStyle()">Ganti warna &amp; background</button></div>
+    </article>
+
+    <article class="demo-card">
+      <div class="card-heading"><span class="step">03</span><div><h2>Percobaan NgModel</h2><p>Two-way binding memperbarui component dan tampilan realtime.</p></div></div>
+      <label>Nama <input [(ngModel)]="nama" placeholder="Ketik nama..." /></label>
+      <label>Pesan <textarea [(ngModel)]="pesan" rows="2" placeholder="Ketik pesan..."></textarea></label>
+      <div class="live-result"><span>Hasil realtime</span><strong>Halo, {{ nama || 'teman' }}!</strong><p>{{ pesan || 'Pesan akan tampil di sini.' }}</p></div>
+    </article>
+
+    <article class="demo-card directive-card">
+      <div class="card-heading"><span class="step">04</span><div><h2>Standalone Directive</h2><p>Arahkan mouse ke judul untuk melihat <code>appHighlight</code>.</p></div></div>
+      <div class="directive-stage"><h3 appHighlight [color]="highlightColor()">Angular 21 Directive</h3><span>{{ highlightColor() }}</span></div>
+      <label class="color-control">Warna highlight <input type="color" [value]="highlightColor()" (input)="highlightColor.set($any($event.target).value)" /></label>
+    </article>
+
+    <article class="demo-card">
+      <div class="card-heading"><span class="step">05</span><div><h2>Built-in Pipe</h2><p>Format data menggunakan pipe bawaan Angular.</p></div></div>
+      <dl class="data-list"><div><dt>TitleCasePipe</dt><dd>{{ customer | titlecase }}</dd></div><div><dt>DatePipe</dt><dd>{{ issuedAt | date:'dd MMM yyyy':'':'id-ID' }}</dd></div><div><dt>CurrencyPipe</dt><dd>{{ total | currency:'IDR':'symbol':'1.0-0':'id-ID' }}</dd></div><div><dt>JsonPipe</dt><dd><pre>{{ invoice | json }}</pre></dd></div></dl>
+    </article>
+
+    <article class="demo-card custom-pipe-card">
+      <div class="card-heading"><span class="step">06</span><div><h2>Custom Pipe</h2><p>Pipe <code>initials</code> mengambil inisial secara pure.</p></div></div>
+      <div class="avatar-result"><span>{{ user.name | initials:3 }}</span><div><strong>{{ user.name }}</strong><small>Limit 3 karakter</small></div></div>
+      <div class="code-note">{{ user.name }} <b>| initials:3</b> → <strong>{{ user.name | initials:3 }}</strong></div>
+    </article>
+  </section>
+
+  <footer>Angular 21 · Standalone APIs · Interactive learning board</footer>
+</main>
