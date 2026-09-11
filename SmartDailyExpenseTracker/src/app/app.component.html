@@ -1,0 +1,24 @@
+<main class="dashboard">
+  <header class="page-header"><div><p class="eyebrow">PERSONAL FINANCE DASHBOARD</p><h1>Smart Expense</h1><p class="subtitle">Pantau dan kelola pengeluaran harianmu dengan mudah.</p></div><div class="logo-mark">SE</div></header>
+
+  <section class="summary-grid" aria-label="Ringkasan pengeluaran">
+    <article class="summary-card"><span class="summary-icon green">Rp</span><div><p>Total Pengeluaran</p><strong>{{ totalExpense | rupiah }}</strong></div></article>
+    <article class="summary-card"><span class="summary-icon blue">#</span><div><p>Jumlah Transaksi</p><strong>{{ expenses.length }}</strong></div></article>
+    <article class="summary-card"><span class="summary-icon orange">&#8593;</span><div><p>Pengeluaran Terbesar</p><strong>{{ largestExpense | rupiah }}</strong></div></article>
+  </section>
+
+  <section class="panel"><div class="section-heading"><div><p class="eyebrow">CATAT SEKARANG</p><h2>Tambah Pengeluaran</h2><p>Masukkan transaksi baru agar catatan keuangan tetap rapi.</p></div><span class="tag">IN-MEMORY</span></div>
+    <form class="expense-form" (ngSubmit)="addExpense()" novalidate>
+      <label>Judul Pengeluaran<input name="title" [(ngModel)]="newExpense.title" placeholder="Contoh: Makan siang">@if (formSubmitted && !newExpense.title.trim()) { <small>Judul wajib diisi.</small> }</label>
+      <label>Kategori<select name="category" [(ngModel)]="newExpense.category"><option value="">Pilih kategori</option><option value="food">Makanan</option><option value="transportation">Transportasi</option><option value="shopping">Belanja</option><option value="entertainment">Hiburan</option><option value="bills">Tagihan</option><option value="education">Pendidikan</option></select>@if (formSubmitted && !newExpense.category) { <small>Kategori wajib dipilih.</small> }</label>
+      <label>Nominal<input name="amount" type="number" min="1" [(ngModel)]="newExpense.amount" placeholder="Contoh: 50000">@if (formSubmitted && newExpense.amount <= 0) { <small>Nominal harus lebih dari 0.</small> }</label>
+      <label>Tanggal<input name="date" type="date" [(ngModel)]="newExpense.date">@if (formSubmitted && !newExpense.date) { <small>Tanggal wajib diisi.</small> }</label>
+      <div class="form-actions"><button type="button" class="light-button" (click)="resetForm()">Reset</button><button type="submit" class="primary-button">+ Tambah Pengeluaran</button></div>
+    </form>
+  </section>
+
+  <section class="panel"><div class="section-heading"><div><p class="eyebrow">ACTIVITY LOG</p><h2>Riwayat Pengeluaran</h2><p>Daftar transaksi yang tersimpan di sesi ini.</p></div><span class="tag">{{ expenses.length }} transaksi</span></div>
+    @if (expenses.length > 0) { <div class="table-scroll"><table><thead><tr><th>No</th><th>Pengeluaran</th><th>Kategori</th><th>Tanggal</th><th>Nominal</th><th>Status</th><th>Aksi</th></tr></thead><tbody>@for (item of expenses; track item.id; let i = $index) { <tr><td class="muted">{{ i + 1 }}</td><td class="expense-name"><span class="dot">{{ item.title.charAt(0).toUpperCase() }}</span>{{ item.title }}</td><td><span class="pill">{{ item.category | categoryName }}</span></td><td class="muted">{{ item.date }}</td><td><span [appExpenseLevel]="item.amount">{{ item.amount | rupiah }}</span></td><td><span class="status">{{ item.amount | expenseStatus }}</span></td><td><button type="button" class="delete-button" (click)="deleteExpense(item.id)">Hapus</button></td></tr> }</tbody></table></div> } @else { <div class="empty-state"><div class="empty-mark">+</div><h3>Belum ada pengeluaran</h3><p>Tambahkan transaksi pertama kamu untuk mulai mencatat pengeluaran.</p></div> }
+  </section>
+  <footer>Smart Daily Expense Tracker <span>•</span> Angular 21</footer>
+</main>
