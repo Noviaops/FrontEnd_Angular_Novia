@@ -1,0 +1,38 @@
+.not-found-page {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+}
+
+.not-found-card {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(17, 38, 26, 0.08);
+  border-radius: 24px;
+  padding: 38px 32px;
+  box-shadow: 0 16px 28px rgba(15, 29, 23, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.error-code {
+  font-size: 5rem;
+  font-weight: 900;
+  margin: 0;
+  color: #1d3e33;
+}
+
+.not-found-card h1 {
+  margin: 10px 0 20px;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+
+.back-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #7fd39a 0%, #5bbb7e 100%);
+  color: #11241a;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  box-shadow: 0 10px 18px rgba(91, 187, 126, 0.2);
+}

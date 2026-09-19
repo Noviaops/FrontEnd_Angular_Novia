@@ -1,0 +1,18 @@
+<section class="page-shell">
+  <header class="page-header">
+    <h1>NCT DREAM Songs</h1>
+    <p>Popular tracks and memorable songs from the group’s discography.</p>
+  </header>
+
+  <div class="song-list">
+    @for (song of songs; track song.title) {
+      <article class="song-card">
+        <div class="song-title">{{ song.title }}</div>
+        <div class="song-meta">
+          <span>Album: {{ song.album }}</span>
+          <span>Year: {{ song.year }}</span>
+        </div>
+      </article>
+    }
+  </div>
+</section>

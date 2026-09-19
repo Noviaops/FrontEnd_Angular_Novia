@@ -1,0 +1,49 @@
+<section class="page-shell home-page">
+  <header class="page-header premium-header">
+    <div class="header-copy">
+      <span class="eyebrow premium-eyebrow">Dream Universe</span>
+      <h1>Welcome to NCT DREAM</h1>
+      <p>Fresh energy, bright vibes, and endless love for the dream team.</p>
+    </div>
+    <div class="header-badge">
+      <span>Live</span>
+      <strong>Dream Mode</strong>
+    </div>
+  </header>
+
+  <div class="welcome-card">
+    <div class="card-copy">
+      <span class="eyebrow">Dream Universe</span>
+      <h2>One dream, one team, one remarkable journey.</h2>
+      <p>
+        NCT DREAM is known for its lively performances, catchy songs, and a strong bond
+        between all members. This dashboard gives a simple overview of the group.
+      </p>
+    </div>
+    <div class="floating-panel">
+      <div class="mini-dot"></div>
+      <div>
+        <small>Group Energy</small>
+        <strong>99%</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    @for (stat of stats; track stat.label) {
+      <article class="stat-card">
+        <span>{{ stat.label }}</span>
+        <strong>{{ stat.value }}</strong>
+      </article>
+    }
+  </div>
+
+  <div class="info-grid">
+    @for (card of quickCards; track card.title) {
+      <article class="info-card">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
+      </article>
+    }
+  </div>
+</section>

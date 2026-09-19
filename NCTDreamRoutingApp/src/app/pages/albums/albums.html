@@ -1,0 +1,21 @@
+<section class="page-shell">
+  <header class="page-header">
+    <h1>NCT DREAM Albums</h1>
+    <p>Collection of songs and releases that define the group’s journey.</p>
+  </header>
+
+  <div class="album-grid">
+    @for (album of albums; track album.title) {
+      <article class="album-card">
+        <div class="album-cover" aria-label="Album cover placeholder for {{ album.title }}">
+          <span>{{ album.title }}</span>
+        </div>
+        <div class="album-info">
+          <h3>{{ album.title }}</h3>
+          <p class="year">{{ album.year }}</p>
+          <p>{{ album.description }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,48 @@
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.album-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(17, 38, 26, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 22px rgba(15, 29, 23, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.album-cover {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #dffae9 0%, #c4efd5 35%, #bfdde7 100%);
+  color: #17352b;
+  font-weight: 800;
+  text-align: center;
+  padding: 16px;
+  letter-spacing: 0.04em;
+}
+
+.album-info {
+  padding: 18px;
+}
+
+.album-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+
+.year {
+  margin: 0 0 10px;
+  color: #356d59;
+  font-weight: 700;
+}
+
+.album-info p:last-child {
+  margin: 0;
+  color: #4d6159;
+  line-height: 1.7;
+}

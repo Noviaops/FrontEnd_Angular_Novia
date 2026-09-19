@@ -1,0 +1,43 @@
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand-block">
+      <div class="brand">NCT DREAM</div>
+      <div class="brand-subtitle">Fan Dashboard</div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Main navigation">
+      @for (menu of mainMenus; track menu.path) {
+        <div class="nav-item-group">
+          <a
+            class="nav-link"
+            [routerLink]="menu.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="menu.path === '/home' ? { exact: true } : { exact: false }"
+          >
+            <span class="nav-icon">{{ menu.icon }}</span>
+            <span>{{ menu.label }}</span>
+          </a>
+
+          @if (menu.path === '/more') {
+            <div class="subnav">
+              @for (sub of moreMenus; track sub.path) {
+                <a
+                  class="subnav-link"
+                  [routerLink]="sub.path"
+                  routerLinkActive="active-sub"
+                >
+                  <span class="nav-icon">{{ sub.icon }}</span>
+                  <span>{{ sub.label }}</span>
+                </a>
+              }
+            </div>
+          }
+        </div>
+      }
+    </nav>
+  </aside>
+
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>

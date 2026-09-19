@@ -1,0 +1,34 @@
+.song-list {
+  display: grid;
+  gap: 16px;
+}
+
+.song-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(17, 38, 26, 0.08);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 20px rgba(15, 29, 23, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.song-title {
+  font-weight: 800;
+  color: #13251b;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.song-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: #49675d;
+  font-size: 0.95rem;
+}
+
+.song-meta span {
+  background: rgba(105, 201, 141, 0.12);
+  border-radius: 999px;
+  padding: 6px 10px;
+}

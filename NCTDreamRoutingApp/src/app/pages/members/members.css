@@ -1,0 +1,47 @@
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.member-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(24, 62, 45, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 26px rgba(15, 29, 23, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.member-photo {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #dff9e8 0%, #bfe9c8 100%);
+  color: #173b2e;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.member-info {
+  padding: 18px;
+}
+
+.member-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.role {
+  margin: 0 0 10px;
+  color: #2a6953;
+  font-weight: 700;
+}
+
+.member-info p:last-child {
+  margin: 0;
+  color: #4d6159;
+  line-height: 1.6;
+}

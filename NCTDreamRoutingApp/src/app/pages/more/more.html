@@ -1,0 +1,31 @@
+<section class="page-shell">
+  <header class="page-header">
+    <h1>More</h1>
+    <p>Explore additional NCT DREAM content in the two submenus below.</p>
+  </header>
+
+  <div class="more-intro">
+    <div class="intro-card">
+      <h2>More NCT DREAM</h2>
+      <p>There are two submenu options available for this section:</p>
+      <ul>
+        <li>Songs</li>
+        <li>Gallery</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nested-content">
+    @if (visibility.showSongs) {
+      <section class="content-section">
+        <app-songs></app-songs>
+      </section>
+    }
+
+    @if (visibility.showGallery) {
+      <section class="content-section">
+        <app-gallery></app-gallery>
+      </section>
+    }
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<section class="page-shell">
+  <header class="page-header">
+    <h1>NCT DREAM Gallery</h1>
+    <p>Collection of placeholder images for the group and its members.</p>
+  </header>
+
+  <div class="gallery-grid">
+    @for (item of galleryItems; track item) {
+      <div class="gallery-item">
+        <div class="gallery-placeholder">{{ item }}</div>
+      </div>
+    }
+  </div>
+</section>
