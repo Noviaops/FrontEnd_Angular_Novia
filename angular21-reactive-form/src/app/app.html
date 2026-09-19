@@ -1,0 +1,42 @@
+<main class="page-shell">
+  <header class="hero">
+    <span class="eyebrow">ANGULAR 21 · REACTIVE FORMS BY NOVIA ZHANG</span>
+    <h1>Angular 21 Reactive Forms</h1>
+    <p>Form Validation, Dynamic Forms &amp; Cross Field Validator</p>
+  </header>
+
+  <div class="card-grid">
+    <section class="demo-card">
+      <div class="card-heading"><span class="step">01</span><div><h2>Form Validation</h2><p>Validators menjaga data tetap sesuai aturan.</p></div></div>
+      <form [formGroup]="validationForm" (ngSubmit)="submitValidation()" novalidate>
+        <div class="field"><label for="nama">Nama</label><input id="nama" formControlName="nama" placeholder="Masukkan nama"><div class="messages">@if (validationControls['nama'].touched && validationControls['nama'].hasError('required')) { <small class="error">Nama wajib diisi.</small> } @if (validationControls['nama'].touched && validationControls['nama'].hasError('minlength')) { <small class="error">Nama minimal 3 karakter.</small> }</div></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" formControlName="email" placeholder="nama@email.com"><div class="messages">@if (validationControls['email'].touched && validationControls['email'].hasError('required')) { <small class="error">Email wajib diisi.</small> } @if (validationControls['email'].touched && validationControls['email'].hasError('email')) { <small class="error">Format email tidak valid.</small> }</div></div>
+        <div class="field"><label for="umur">Umur</label><input id="umur" type="number" formControlName="umur" placeholder="17 - 60"><div class="messages">@if (validationControls['umur'].touched && validationControls['umur'].hasError('required')) { <small class="error">Umur wajib diisi.</small> } @if (validationControls['umur'].touched && validationControls['umur'].hasError('min')) { <small class="error">Umur minimal 17 tahun.</small> } @if (validationControls['umur'].touched && validationControls['umur'].hasError('max')) { <small class="error">Umur maksimal 60 tahun.</small> }</div></div>
+        <button class="primary-button" type="submit">Submit Validation</button>
+      </form>
+    </section>
+
+    <section class="demo-card">
+      <div class="card-heading"><span class="step">02</span><div><h2>Building Dynamic Forms</h2><p>FormArray mengelola daftar skill yang fleksibel.</p></div></div>
+      <form [formGroup]="dynamicForm" (ngSubmit)="submitDynamicForm()" novalidate>
+        <div formArrayName="skills" class="skills-list">
+          @for (skill of skills.controls; track $index) {
+            <div class="skill-row"><div class="field"><label [for]="'skill-' + $index">Skill {{ $index + 1 }}</label><input [id]="'skill-' + $index" [formControlName]="$index" placeholder="Contoh: Angular">@if (skill.touched && skill.hasError('required')) { <small class="error">Skill tidak boleh kosong.</small> }</div><button class="delete-button" type="button" (click)="removeSkill($index)">Hapus</button></div>
+          }
+        </div>
+        <div class="actions"><button class="secondary-button" type="button" (click)="addSkill()">+ Tambah Skill</button><button class="primary-button" type="submit">Submit Dynamic Form</button></div>
+      </form>
+    </section>
+
+    <section class="demo-card">
+      <div class="card-heading"><span class="step">03</span><div><h2>Cross Field Validator</h2><p>Validator membandingkan dua field password.</p></div></div>
+      <form [formGroup]="crossFieldForm" (ngSubmit)="submitCrossField()" novalidate>
+        <div class="field"><label for="password">Password</label><input id="password" type="password" formControlName="password" placeholder="Minimal 8 karakter">@if (crossFieldControls['password'].touched && crossFieldControls['password'].hasError('required')) { <small class="error">Password wajib diisi.</small> } @if (crossFieldControls['password'].touched && crossFieldControls['password'].hasError('minlength')) { <small class="error">Password minimal 8 karakter.</small> }</div>
+        <div class="field"><label for="password_confirmation">Password Confirmation</label><input id="password_confirmation" type="password" formControlName="password_confirmation" placeholder="Ulangi password">@if (crossFieldControls['password_confirmation'].touched && crossFieldControls['password_confirmation'].hasError('required')) { <small class="error">Password confirmation wajib diisi.</small> } @if (crossFieldControls['password_confirmation'].touched && crossFieldControls['password_confirmation'].value && crossFieldForm.hasError('passwordMismatch')) { <small class="error">✕ Password tidak cocok.</small> } @if (crossFieldControls['password_confirmation'].touched && crossFieldControls['password_confirmation'].value && !crossFieldForm.hasError('passwordMismatch')) { <small class="success">✓ Password cocok.</small> }</div>
+        <button class="primary-button" type="submit">Submit Cross Field</button>
+      </form>
+    </section>
+  </div>
+
+  <footer></footer>
+</main>

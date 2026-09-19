@@ -1,0 +1,36 @@
+<main class="page-shell">
+  <section class="form-card">
+    <header class="hero">
+      <span class="eyebrow">MINI PROJECT · ANGULAR 21 BY NOVIA ZHANG</span>
+      <h1>Registration Form</h1>
+      <p>Reactive Form dengan validasi, RxJS, dan dynamic form.</p>
+    </header>
+
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-grid">
+        <div class="form-group"><label for="first_name">First Name</label><input id="first_name" formControlName="first_name" placeholder="Masukkan first name">@if (f['first_name'].touched && f['first_name'].hasError('required')) { <small>First name wajib diisi.</small> } @if (f['first_name'].touched && f['first_name'].hasError('minlength')) { <small>First name minimal 3 karakter.</small> }</div>
+        <div class="form-group"><label for="last_name">Last Name</label><input id="last_name" formControlName="last_name" placeholder="Masukkan last name">@if (f['last_name'].touched && f['last_name'].hasError('required')) { <small>Last name wajib diisi.</small> } @if (f['last_name'].touched && f['last_name'].hasError('minlength')) { <small>Last name minimal 3 karakter.</small> }</div>
+        <div class="form-group full"><label for="email">Email</label><input id="email" type="email" formControlName="email" placeholder="contoh@email.com">@if (f['email'].touched && f['email'].invalid) { <small>{{ f['email'].hasError('required') ? 'Email wajib diisi.' : 'Format email tidak valid.' }}</small> }</div>
+        <div class="form-group full"><label for="address">Address</label><textarea id="address" formControlName="address" placeholder="Masukkan alamat lengkap"></textarea>@if (f['address'].touched && f['address'].hasError('required')) { <small>Address wajib diisi.</small> } @if (f['address'].touched && f['address'].hasError('minlength')) { <small>Address minimal 10 karakter.</small> }</div>
+        <div class="form-group"><label for="rt">RT</label><input id="rt" formControlName="rt" placeholder="Contoh: 01">@if (f['rt'].touched && f['rt'].invalid) { <small>RT harus berupa angka maksimal 3 digit.</small> }</div>
+        <div class="form-group"><label for="rw">RW</label><input id="rw" formControlName="rw" placeholder="Contoh: 02">@if (f['rw'].touched && f['rw'].invalid) { <small>RW harus berupa angka maksimal 3 digit.</small> }</div>
+        <div class="form-group"><label for="kecamatan">Kecamatan</label><select id="kecamatan" formControlName="kecamatan"><option value="">-- Pilih Kecamatan --</option>@for (kecamatan of kecamatanList; track kecamatan) { <option [value]="kecamatan">{{ kecamatan }}</option> }</select>@if (f['kecamatan'].touched && f['kecamatan'].invalid) { <small>Kecamatan wajib dipilih.</small> }</div>
+        <div class="form-group"><label for="kelurahan">Kelurahan</label><select id="kelurahan" formControlName="kelurahan"><option value="">-- Pilih Kelurahan --</option>@for (kelurahan of kelurahanList; track kelurahan) { <option [value]="kelurahan">{{ kelurahan }}</option> }</select>@if (f['kelurahan'].touched && f['kelurahan'].invalid) { <small>Kelurahan wajib dipilih.</small> }</div>
+        <fieldset class="form-group full"><legend>Gender</legend><div class="radio-group"><label><input type="radio" formControlName="gender" value="Laki-laki"> Laki-laki</label><label><input type="radio" formControlName="gender" value="Perempuan"> Perempuan</label></div>@if (f['gender'].touched && f['gender'].invalid) { <small>Gender wajib dipilih.</small> }</fieldset>
+        <div class="form-group"><label for="password">Password</label><input id="password" type="password" formControlName="password" placeholder="Minimal 8 karakter">@if (f['password'].touched && f['password'].hasError('required')) { <small>Password wajib diisi.</small> } @if (f['password'].touched && f['password'].hasError('minlength')) { <small>Password minimal 8 karakter.</small> }</div>
+        <div class="form-group"><label for="password_confirmation">Password Confirmation</label><input id="password_confirmation" type="password" formControlName="password_confirmation" placeholder="Ulangi password">@if (f['password_confirmation'].touched && f['password_confirmation'].hasError('required')) { <small>Password confirmation wajib diisi.</small> } @if (f['password_confirmation'].touched && registrationForm.hasError('passwordMismatch')) { <small>Password tidak cocok.</small> } @if (f['password_confirmation'].touched && f['password_confirmation'].value && !registrationForm.hasError('passwordMismatch')) { <span class="success">✓ Password cocok.</span> }</div>
+        <div class="form-group full"><label for="reason_join">Reason Join</label><textarea id="reason_join" formControlName="reason_join" placeholder="Tuliskan alasan bergabung..."></textarea>@if (f['reason_join'].touched && f['reason_join'].hasError('required')) { <small>Reason join wajib diisi.</small> } @if (f['reason_join'].touched && f['reason_join'].hasError('minlength')) { <small>Reason join minimal 10 karakter.</small> }</div>
+      </div>
+
+      <section class="hobbies" formArrayName="hobbies">
+        <div class="section-title"><div><h2>Hobbies / Interest</h2><p>Tambahkan minat untuk melengkapi profil.</p></div><button type="button" class="add-button" (click)="addHobby()">+ Tambah Hobby</button></div>
+        @for (hobby of hobbies.controls; track $index) { <div class="dynamic-row"><input [formControlName]="$index" placeholder="Masukkan hobby"><button type="button" class="delete-button" (click)="removeHobby($index)">Hapus</button></div>@if (hobby.touched && hobby.invalid) { <small>Hobby wajib diisi atau hapus baris ini.</small> } }
+      </section>
+      <div class="button-group"><button type="submit" class="submit-button">Submit</button><button type="button" class="reset-button" (click)="onReset()">Reset</button></div>
+    </form>
+  </section>
+
+  @if (submittedData) {
+    <section class="result-card"><header><span class="eyebrow">SUBMISSION BERHASIL</span><h2>Show Data</h2><p>Password tidak ditampilkan demi keamanan.</p></header><div class="data-grid"><div><span>First Name</span><strong>{{ submittedData['first_name'] }}</strong></div><div><span>Last Name</span><strong>{{ submittedData['last_name'] }}</strong></div><div><span>Email</span><strong>{{ submittedData['email'] }}</strong></div><div class="full"><span>Address</span><strong>{{ submittedData['address'] }}</strong></div><div><span>RT/RW</span><strong>{{ submittedData['rt'] }}/{{ submittedData['rw'] }}</strong></div><div><span>Gender</span><strong>{{ submittedData['gender'] }}</strong></div><div><span>Kecamatan</span><strong>{{ submittedData['kecamatan'] }}</strong></div><div><span>Kelurahan</span><strong>{{ submittedData['kelurahan'] }}</strong></div><div class="full"><span>Reason Join</span><strong>{{ submittedData['reason_join'] }}</strong></div><div class="full"><span>Hobbies</span><strong>{{ formatHobbies(submittedData['hobbies']) }}</strong></div></div></section>
+  }
+</main>
