@@ -1,0 +1,30 @@
+@NCTDreamCrudApi_HostAddress = http://localhost:7000
+
+### READ semua todo
+GET {{NCTDreamCrudApi_HostAddress}}/api/todos
+
+### READ satu todo
+GET {{NCTDreamCrudApi_HostAddress}}/api/todos/1
+
+### CREATE todo baru
+POST {{NCTDreamCrudApi_HostAddress}}/api/todos
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "Belajar Angular CRUD",
+  "completed": false
+}
+
+### UPDATE todo
+PUT {{NCTDreamCrudApi_HostAddress}}/api/todos/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "Belajar REST API",
+  "completed": true
+}
+
+### DELETE todo
+DELETE {{NCTDreamCrudApi_HostAddress}}/api/todos/1
