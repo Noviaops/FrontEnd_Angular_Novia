@@ -12,7 +12,8 @@ export class LayoutComponent {
     { label: 'Home', icon: '🏠', path: '/home' },
     { label: 'Members', icon: '👥', path: '/members' },
     { label: 'Albums', icon: '💿', path: '/albums' },
-    { label: 'More', icon: '⋯', path: '/more' }
+    { label: 'More', icon: '⋯', path: '/more' },
+    { label: 'Todo CRUD', icon: '✅', path: '/todos' }
   ];
 
   readonly moreMenus = [

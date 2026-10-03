@@ -29,6 +29,10 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'todos',
+    loadComponent: () => import('./pages/todos/todos').then((m) => m.TodosComponent)
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFoundComponent)
   }

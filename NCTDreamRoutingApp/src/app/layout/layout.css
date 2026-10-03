@@ -118,11 +118,57 @@
   .sidebar {
     width: 100%;
     height: auto;
+    min-height: 0;
     position: static;
-    padding-bottom: 20px;
+    padding: 8px 12px;
+  }
+
+  .brand-block {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 6px 4px;
+    margin-bottom: 4px;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .brand-subtitle {
+    margin-top: 0;
+    font-size: 0.58rem;
+  }
+
+  .sidebar-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 2px;
+  }
+
+  .nav-item-group,
+  .subnav {
+    display: contents;
+  }
+
+  .nav-link,
+  .subnav-link {
+    min-width: 0;
+    gap: 4px;
+    padding: 5px 4px;
+    font-size: 0.74rem;
+    white-space: nowrap;
   }
 
   .content-area {
     padding: 18px 16px 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  .sidebar-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
